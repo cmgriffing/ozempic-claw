@@ -1,15 +1,48 @@
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Zap, Layers, ArrowRight, Github, Terminal, Minus, ChevronRight, Sparkles, Scale, Feather, Wind } from "lucide-react";
 
+const QUIPS = [
+  "Satire... in this economy?",
+  "This button doesn't do anything. Much like the framework itself.",
+  "You clicked something on a fake website. Bold.",
+  "404: Ambition not found.",
+  "This feature was removed in the latest release to save bytes.",
+  "Your click has been logged and will be deleted to reduce overhead.",
+  "We considered adding functionality here, but it conflicted with our minimalist values.",
+  "This interaction consumed more compute than OzempicClaw itself.",
+];
+
 const Index = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [quip, setQuip] = useState("");
+
+  const showQuip = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    setQuip(QUIPS[Math.floor(Math.random() * QUIPS.length)]);
+    setDialogOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-lg">⚖️ OzempicClaw</DialogTitle>
+            <DialogDescription className="text-base pt-2">
+              {quip}
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+
       {/* Nav */}
       <nav className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="container mx-auto flex items-center justify-between h-16 px-6">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={showQuip}>
             <Scale className="h-5 w-5 text-primary" />
             <span className="font-semibold text-lg tracking-tight" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               OzempicClaw
@@ -19,10 +52,10 @@ const Index = () => {
             </Badge>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-            <a href="#comparison" className="hover:text-foreground transition-colors">Compare</a>
-            <a href="#docs" className="hover:text-foreground transition-colors">Docs</a>
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <a href="#" onClick={showQuip} className="hover:text-foreground transition-colors">Features</a>
+            <a href="#" onClick={showQuip} className="hover:text-foreground transition-colors">Compare</a>
+            <a href="#" onClick={showQuip} className="hover:text-foreground transition-colors">Docs</a>
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={showQuip}>
               <Github className="h-4 w-4 mr-1" /> Star
             </Button>
           </div>
@@ -52,11 +85,11 @@ const Index = () => {
             97% smaller than OpenClaw. Side effects may include mass loss of dependencies.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 text-base">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 text-base" onClick={showQuip}>
               <Terminal className="h-4 w-4 mr-2" />
               pip install ozempicclaw
             </Button>
-            <Button size="lg" variant="outline" className="text-base">
+            <Button size="lg" variant="outline" className="text-base" onClick={showQuip}>
               Read the docs <ArrowRight className="h-4 w-4 ml-2" />
             </Button>
           </div>
@@ -94,38 +127,14 @@ const Index = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {[
-            {
-              icon: Feather,
-              title: "Near-zero abstractions",
-              description: "We removed the abstractions on top of the abstractions. Then we removed those too.",
-            },
-            {
-              icon: Wind,
-              title: "Vanishing dependencies",
-              description: "Each minor version drops another dependency. v1.0 will ship with none.",
-            },
-            {
-              icon: Minus,
-              title: "Negative lines of code",
-              description: "Our PRs delete more lines than they add. Contributing means removing things.",
-            },
-            {
-              icon: Sparkles,
-              title: "Appetite suppression",
-              description: "Built-in token diet. Your agents consume 40% fewer tokens by wanting less.",
-            },
-            {
-              icon: Layers,
-              title: "One layer architecture",
-              description: "Multi-layer orchestration is bloat. OzempicClaw uses a single, increasingly thin layer.",
-            },
-            {
-              icon: Zap,
-              title: "Lightning fast (less to load)",
-              description: "When your framework barely exists, cold starts are measured in nanoseconds.",
-            },
+            { icon: Feather, title: "Near-zero abstractions", description: "We removed the abstractions on top of the abstractions. Then we removed those too." },
+            { icon: Wind, title: "Vanishing dependencies", description: "Each minor version drops another dependency. v1.0 will ship with none." },
+            { icon: Minus, title: "Negative lines of code", description: "Our PRs delete more lines than they add. Contributing means removing things." },
+            { icon: Sparkles, title: "Appetite suppression", description: "Built-in token diet. Your agents consume 40% fewer tokens by wanting less." },
+            { icon: Layers, title: "One layer architecture", description: "Multi-layer orchestration is bloat. OzempicClaw uses a single, increasingly thin layer." },
+            { icon: Zap, title: "Lightning fast (less to load)", description: "When your framework barely exists, cold starts are measured in nanoseconds." },
           ].map((feature) => (
-            <Card key={feature.title} className="bg-card border-border hover:border-primary/30 transition-colors group">
+            <Card key={feature.title} className="bg-card border-border hover:border-primary/30 transition-colors group cursor-pointer" onClick={showQuip}>
               <CardContent className="p-6">
                 <feature.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="font-semibold text-base mb-2">{feature.title}</h3>
@@ -161,18 +170,11 @@ const Index = () => {
                   { name: "NullClaw", size: "12 KB", deps: "1", abstractions: "0", highlight: false },
                   { name: "OzempicClaw", size: "0.4 KB", deps: "-2", abstractions: "—", highlight: true },
                 ].map((row) => (
-                  <tr
-                    key={row.name}
-                    className={`border-b border-border last:border-0 ${
-                      row.highlight ? "bg-primary/5" : ""
-                    }`}
-                  >
+                  <tr key={row.name} className={`border-b border-border last:border-0 ${row.highlight ? "bg-primary/5" : ""}`}>
                     <td className="px-6 py-3 font-medium">
                       {row.name}
                       {row.highlight && (
-                        <Badge className="ml-2 text-[10px] bg-primary/10 text-primary border-primary/20" variant="outline">
-                          new
-                        </Badge>
+                        <Badge className="ml-2 text-[10px] bg-primary/10 text-primary border-primary/20" variant="outline">new</Badge>
                       )}
                     </td>
                     <td className="text-right px-6 py-3 text-muted-foreground">{row.size}</td>
@@ -193,29 +195,12 @@ const Index = () => {
       <section className="container mx-auto px-6 py-20">
         <div className="max-w-3xl mx-auto space-y-8">
           {[
-            {
-              quote: "I migrated from OpenClaw to OzempicClaw and my Docker image lost 98% of its weight. My cloud bill is in remission.",
-              author: "Senior Claw Engineer",
-              company: "Series A Startup",
-            },
-            {
-              quote: "We replaced our entire orchestration layer with OzempicClaw. Our agents do less, but they look incredible doing it.",
-              author: "Head of AI",
-              company: "Fortune 500",
-            },
-            {
-              quote: "The docs are just a single page that says 'you probably don't need this either.' Truly visionary.",
-              author: "Open Source Maintainer",
-              company: "Independent Contributor",
-            },
+            { quote: "I migrated from OpenClaw to OzempicClaw and my Docker image lost 98% of its weight. My cloud bill is in remission.", author: "Senior Claw Engineer", company: "Series A Startup" },
+            { quote: "We replaced our entire orchestration layer with OzempicClaw. Our agents do less, but they look incredible doing it.", author: "Head of AI", company: "Fortune 500" },
+            { quote: "The docs are just a single page that says 'you probably don't need this either.' Truly visionary.", author: "Open Source Maintainer", company: "Independent Contributor" },
           ].map((testimonial) => (
-            <blockquote
-              key={testimonial.author}
-              className="border-l-2 border-primary/30 pl-6 py-2"
-            >
-              <p className="text-base md:text-lg text-muted-foreground italic leading-relaxed mb-3">
-                "{testimonial.quote}"
-              </p>
+            <blockquote key={testimonial.author} className="border-l-2 border-primary/30 pl-6 py-2">
+              <p className="text-base md:text-lg text-muted-foreground italic leading-relaxed mb-3">"{testimonial.quote}"</p>
               <footer className="text-sm">
                 <span className="text-foreground font-medium">{testimonial.author}</span>
                 <span className="text-muted-foreground"> · {testimonial.company}</span>
@@ -233,10 +218,10 @@ const Index = () => {
             Join thousands of developers who are doing more with less. Or less with less. Mostly less.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8" onClick={showQuip}>
               Get started <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
-            <Button size="lg" variant="ghost" className="text-muted-foreground">
+            <Button size="lg" variant="ghost" className="text-muted-foreground" onClick={showQuip}>
               <Github className="h-4 w-4 mr-2" />
               github.com/ozempic-claw
             </Button>
@@ -247,7 +232,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={showQuip}>
             <Scale className="h-4 w-4" />
             <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>OzempicClaw</span>
           </div>
