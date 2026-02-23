@@ -33,8 +33,8 @@ const Index = () => {
       <section className="container mx-auto px-6 pt-24 pb-20">
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Badge variant="outline" className="text-xs font-normal text-muted-foreground border-border">
-              From the makers of NullClaw
+            <Badge variant="outline" className="text-xs font-normal text-muted-foreground border-border px-3 py-1">
+              The Next Evolution in Minimalist Orchestration
             </Badge>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
@@ -206,7 +206,7 @@ const Index = () => {
             {
               quote: "The docs are just a single page that says 'you probably don't need this either.' Truly visionary.",
               author: "Open Source Maintainer",
-              company: "NullClaw Core Team",
+              company: "Independent Contributor",
             },
           ].map((testimonial) => (
             <blockquote
