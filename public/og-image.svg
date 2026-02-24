@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <text x="600" y="80" text-anchor="middle" font-family="monospace" font-size="48" fill="#e5e5e5">OzempicClaw</text>
+  <text x="600" y="130" text-anchor="middle" font-family="monospace" font-size="24" fill="#a3a3a3">The thinnest agent framework yet</text>
+  
+  <rect x="150" y="180" width="900" height="280" rx="8" fill="#171717" stroke="#262626"/>
+  
+  <text x="190" y="220" font-family="monospace" font-size="18" fill="#a3a3a3">Framework</text>
+  <text x="650" y="220" font-family="monospace" font-size="18" fill="#a3a3a3">Size</text>
+  <text x="850" y="220" font-family="monospace" font-size="18" fill="#a3a3a3">Deps</text>
+  <text x="1000" y="220" font-family="monospace" font-size="18" fill="#a3a3a3">Abstractions</text>
+  
+  <line x1="150" y1="240" x2="1050" y2="240" stroke="#262626"/>
+  
+  <text x="190" y="280" font-family="monospace" font-size="16" fill="#a3a3a3">OpenClaw</text>
+  <text x="650" y="280" font-family="monospace" font-size="16" fill="#a3a3a3">48 MB</text>
+  <text x="850" y="280" font-family="monospace" font-size="16" fill="#a3a3a3">142</text>
+  <text x="1000" y="280" font-family="monospace" font-size="16" fill="#a3a3a3">∞</text>
+  
+  <text x="190" y="320" font-family="monospace" font-size="16" fill="#a3a3a3">PicoClaw</text>
+  <text x="650" y="320" font-family="monospace" font-size="16" fill="#a3a3a3">2.1 MB</text>
+  <text x="850" y="320" font-family="monospace" font-size="16" fill="#a3a3a3">34</text>
+  <text x="1000" y="320" font-family="monospace" font-size="16" fill="#a3a3a3">12</text>
+  
+  <text x="190" y="360" font-family="monospace" font-size="16" fill="#a3a3a3">NullClaw</text>
+  <text x="650" y="360" font-family="monospace" font-size="16" fill="#a3a3a3">12 KB</text>
+  <text x="850" y="360" font-family="monospace" font-size="16" fill="#a3a3a3">1</text>
+  <text x="1000" y="360" font-family="monospace" font-size="16" fill="#a3a3a3">0</text>
+  
+  <rect x="148" y="378" width="904" height="80" rx="4" fill="#22c55e" opacity="0.15"/>
+  <text x="190" y="420" font-family="monospace" font-size="18" fill="#22c55e" font-weight="bold">OzempicClaw</text>
+  <text x="650" y="420" font-family="monospace" font-size="18" fill="#22c55e" font-weight="bold">0.4 KB</text>
+  <text x="850" y="420" font-family="monospace" font-size="18" fill="#22c55e" font-weight="bold">-2</text>
+  <text x="1000" y="420" font-family="monospace" font-size="18" fill="#22c55e" font-weight="bold">—</text>
+  
+  <text x="600" y="540" text-anchor="middle" font-family="monospace" font-size="20" fill="#737373">Side effects may include mass loss of dependencies</text>
+</svg>
