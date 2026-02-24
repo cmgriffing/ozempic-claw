@@ -6,6 +6,8 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://cmgriffing.github.io',
+  base: '/ozempic-claw',
   vite: {
     plugins: [tailwindcss()]
   },
