@@ -1,11 +1,11 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
 }
 
-const { title = 'OzempicClaw' } = Astro.props;
+const { title = "OzempicClaw" } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,16 +15,28 @@ const { title = 'OzempicClaw' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:title" content="OzempicClaw - The thinnest agent framework yet" />
-    <meta property="og:description" content="The thinnest agent framework yet. 97% smaller than OpenClaw. Side effects may include mass loss of dependencies." />
-    <meta property="og:image" content="/og-image.svg" />
+    <meta
+      property="og:title"
+      content="OzempicClaw - The thinnest AI assistant yet"
+    />
+    <meta
+      property="og:description"
+      content="The thinnest AI assistant yet. Built-in token diet. Your agents consume 40% fewer tokens by wanting less."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OzempicClaw - The thinnest agent framework yet" />
-    <meta name="twitter:description" content="The thinnest agent framework yet. 97% smaller than OpenClaw. Side effects may include mass loss of dependencies." />
-    <meta name="twitter:image" content="/og-image.svg" />
+    <meta
+      name="twitter:title"
+      content="OzempicClaw - The thinnest AI assistant yet"
+    />
+    <meta
+      name="twitter:description"
+      content="The thinnest AI assistant yet. Built-in token diet. Your agents consume 40% fewer tokens by wanting less."
+    />
+    <meta name="twitter:image" content="/og-image.jpg" />
     <title>{title}</title>
-    <meta name="description" content="The thinnest agent framework yet." />
+    <meta name="description" content="The thinnest AI assistant yet." />
   </head>
   <body>
     <slot />
